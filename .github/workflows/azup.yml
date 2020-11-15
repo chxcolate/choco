@@ -1,33 +1,31 @@
 name: Azure Upload
 
 on:
-push:
-    branches: [ master ]
-pull_request:
-    branches: [ master ]
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
 
 jobs:
-build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Azure Login
-    uses: azure/login@v1
-    with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}    
-    - name: Azure CLI script
-    uses: azure/CLI@v1
-    with:
-        azcliversion: 2.0.72
-        inlineScript: |
-            az storage blob upload-batch --account-name chxco -d '$web' -s .
-    - name: Azure CLI script
-    uses: azure/CLI@v1
-    with:
-        azcliversion: 2.0.72
-        inlineScript: |
-        az cdn endpoint purge --content-paths  "/*" --profile-name "chxco" --name "chxco" --resource-group "chxco"
-        # Azure logout 
-    - name: logout
-      run: |
-            az logout
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Azure Login
+            - uses: azure/login@v1
+            - with:
+                  creds: ${{ secrets.AZURE_CREDENTIALS }}
+            - name: Azure CLI script
+            - uses: azure/CLI@v1
+            - with:
+                  azcliversion: 2.0.72
+                  inlineScript: |
+                      az storage blob upload-batch --account-name chxco -d '$web' -s .
+            - name: Azure CLI script
+            - uses: azure/CLI@v1
+            - with:
+                  azcliversion: 2.0.72
+                  inlineScript: az cdn endpoint purge --content-paths  "/*" --profile-name "chxco" --name "chxco"   --resource-group "chxco"
+            # Azure logout
+            - name: logout
+            - run: az logout
