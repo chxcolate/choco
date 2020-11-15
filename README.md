@@ -2,7 +2,7 @@
 
 ## Info
 
-This is [Choco][Choco.dev]'s main repository.
+This is [Chxco][Chxco.dev]'s main repository.
 
 It will contain all the code for the website.
 
