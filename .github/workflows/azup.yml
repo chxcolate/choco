@@ -18,7 +18,7 @@ jobs:
             - name: Install NPM Packages
               run: npm ci
             - name: Install gatsby-cli
-              run: npm i -g gatsby-cli
+              run: npm i gatsby-cli
             - name: Build Gatsby App
               run: npm run build
             - name: Azure CLI script
