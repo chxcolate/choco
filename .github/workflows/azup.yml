@@ -15,12 +15,18 @@ jobs:
               uses: azure/login@v1
               with:
                   creds: ${{ secrets.AZURE_CREDENTIALS }}
+            - name: Install NPM Packages
+              run: npm ci
+            - name: Install gatsby-cli
+              run: npm i -g gatsby-cli
+            - name: Build Gatsby App
+              run: npm run build
             - name: Azure CLI script
               uses: azure/CLI@v1
               with:
                   azcliversion: 2.0.72
                   inlineScript: |
-                      az storage blob upload-batch --account-name chxco -d '$web' -s .
+                      az storage blob upload-batch --account-name chxco -d '$web' -s public
             - name: Azure CLI script
               uses: azure/CLI@v1
               with:
