@@ -1,0 +1,14 @@
+@import 'fonts';
+@import 'vars';
+@import 'tricks';
+
+.container404 {
+  position: relative;
+}
+
+h1 {
+  font-family: $sriracha;
+  font-size: 45px;
+  color: $primary-400;
+  @include center($height: 45px);
+}
