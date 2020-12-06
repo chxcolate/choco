@@ -1,0 +1,6 @@
+.dateText {
+  @apply text-lg text-purple-700 md:text-2xl lg:text-3xl xl:text-4xl
+  & @media (min-width: 640px;) {
+    @apply text-xl;
+  }
+}

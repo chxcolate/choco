@@ -42,9 +42,9 @@ export default function Jan20({ data }) {
     }
 
     timerComponents.push(
-      <DateText>
+      <span className="text-lg text-purple-700 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
         {timeLeft[interval]} {interval}{' '}
-      </DateText>
+      </span>
     )
   })
 
@@ -58,9 +58,16 @@ export default function Jan20({ data }) {
         {timerComponents.length ? (
           timerComponents
         ) : (
-          <DateText>It's time!</DateText>
+          <span className="text-lg text-purple-700 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+            It's time!
+          </span>
         )}
-        <img src="/bing-bong.jpg" />
+        <img
+          width="1200"
+          height="1000"
+          src="/bing-bong.jpg"
+          className="overflow-hidden"
+        />
       </div>
     </>
   )
